@@ -1,0 +1,29 @@
+# macOS / Windows / Linux clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build / node / python (in case anyone adds tooling later)
+node_modules/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Local scratch — never commit private notes, credentials, or student PII
+notes/
+scratch/
+*.local.md
+.env
+.env.*
+
+# Instructor-only draft handbooks not yet ready for public release
+*.WIP.md
