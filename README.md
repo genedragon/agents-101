@@ -20,7 +20,7 @@ Repo: **https://github.com/genedragon/agents-101**
 1. Explain what an agent is — and what it isn't — to a non-technical adult
 2. Use Kiro IDE and Kiro CLI to build, edit, and run a real software project with an agent
 3. Publish work to a public GitHub Pages portfolio anyone can see
-4. Use Amazon Quick to automate everyday tasks (the "help your parents" tool)
+4. Run **KiroClaw** — an agent that remembers you across sessions, schedules its own jobs, and spawns background subagents
 5. Know where to go next — communities, free resources, next projects
 
 ---
@@ -36,8 +36,8 @@ Repo: **https://github.com/genedragon/agents-101**
 | 5 | Project kickoff — design & scaffold | Kiro | Project plan + scaffold |
 | 6 | GitHub + portfolio publish | GitHub Pages | Live public site |
 | 7 | Iteration & debugging with agents | Kiro | Working v2 with bug log |
-| 8 | Quick — agentic AI for non-developers | Amazon Quick | A Flow that helps a parent/teacher |
-| 9 | Stretch track — advanced topics | optional | Advanced demo |
+| 8 | **Meet KiroClaw — persistent agents** | KiroClaw | An agent that remembers you across sessions |
+| 9 | **KiroClaw advanced** — cron, subagents, self-learning | KiroClaw | A scheduled autonomous job you built |
 | 10 | Showcase + launchpad | — | Public showcase + next-steps plan |
 
 Each session: 60–90 minutes. Format: short lesson, then hands-on work with instructor and TA available for questions.
@@ -74,8 +74,8 @@ This curriculum is built to run at **$0 for a pilot cohort of ~10 students**. Ev
 | GitHub Pages | Free | 1 GB storage, 100 GB/mo bandwidth |
 | Netlify | Free starter | 100 GB/mo, 300 build minutes |
 | Hugging Face Spaces | Free CPU tier | Used in week 9 only |
-| Amazon Quick (web) | Free forever | Used in week 8 |
-| Amazon Quick Desktop | Free for 30 days, then $20/mo | We use the 30-day trial only |
+| **KiroClaw** | Free (open-source, self-host) | Weeks 8–9; runs on top of Kiro CLI (uses the shared 50-credit pool) |
+| **OpenClaw** (KiroClaw fallback) | Free (Apache 2.0, self-host) | Only if KiroClaw public release slips past September |
 
 **Worst-case student-cost cushion:** ~$80 to cover 1–2 students who burn through Kiro free credits during deep-build weeks. Schools can budget this or apply for Kiro sponsored credits.
 
@@ -96,7 +96,7 @@ agents-101/
 ├── student-handbook.md                ← glossary, quick reference, prompt cheatsheet (WIP)
 ├── school-it-conversation-guide.md    ← what to ask school IT (WIP)
 ├── kiro-credits-request.md            ← draft email to Kiro team (WIP)
-└── stretch-track/                     ← advanced topics for eager students (WIP)
+└── stretch-track/                     ← OpenClaw fallback (if KiroClaw slips) + deeper KiroClaw topics (WIP)
 ```
 
 Files marked WIP are not yet written; they'll land as the curriculum builds out ahead of the September pilot.
@@ -123,7 +123,7 @@ Files marked WIP are not yet written; they'll land as the curriculum builds out 
 
 This curriculum makes three opinionated choices:
 
-1. **Kiro IDE first, Quick second.** The IDE makes "agent workspace" concepts visible (files, terminal, tool calls all on one screen). Quick comes later as the consumer-facing flavor — "the version you can show your parents."
+1. **Kiro IDE first, KiroClaw for depth.** The IDE makes "agent workspace" concepts visible (files, terminal, tool calls all on one screen). KiroClaw arrives in weeks 8–9 as the *"and here's what you build TOWARD"* — persistent memory, scheduled jobs, background subagents, self-learning. Students see the arc from "chatbot" (week 1) to "an agent that shows up on its own to do work for me" (week 9).
 
 2. **Build, don't just chat.** Every session produces an artifact, not a transcript. The goal is for students to have *things they made* by the end, not screenshots of conversations.
 

@@ -144,7 +144,7 @@ Reinforce: there's no shame in getting it wrong. Some real-world tools are *kind
 ## Homework before next session
 
 - Read the `student-handbook.md` glossary entries for: **agent, chatbot, model, prompt, tool**
-- Sign up for a free account on one of: Amazon Quick (`quick.amazon.com`), Claude.ai, or Gemini (instructor picks the default)
+- Sign up for a free account on one of: Claude.ai, Gemini, or Amazon Quick web (instructor picks the default) — just to have hands-on browser chat experience before class next week
 - Bring a laptop next week — we install Kiro IDE in session 2
 
 ---

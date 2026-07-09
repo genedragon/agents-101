@@ -76,7 +76,7 @@ This is a "did you try?" assignment, not a right-or-wrong one. The instructor an
 
 - Your completed Assignment 1
 - Your laptop, charged
-- An account already signed up on **Amazon Quick** (`quick.amazon.com`) — we'll use this in week 8, but signing up now means you have your account ready
+- A free browser-chat account (Claude.ai, Gemini, or Amazon Quick web — instructor's pick) — signed up and working, so week-1 warmup is unblocked
 - Questions you got stuck on this week
 
 ---
