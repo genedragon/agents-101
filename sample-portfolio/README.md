@@ -10,12 +10,12 @@ It's the artifact behind **The Ladder → Week 6: "My website is live on the int
 sample-portfolio/
 ├── index.html                        # Sprig's site: honest agent-narrated demo portfolio
 └── projects/
-    └── mood-playlist/
-        └── index.html                # a working mini-app (pick a mood → playlist idea)
+    └── emoji-match/
+        └── index.html                # a working mini-game (flip cards, match the emoji pairs)
 ```
 
 - **`index.html`** — narrated by Sprig. A top disclosure banner, three projects framed as *"a student asked X, so we built it together,"* a "what working with an agent is like" list, and an explicit **"Am I real?"** section (answer: no, and here's why that matters).
-- **`projects/mood-playlist/index.html`** — a real, working, single-file app. No build step, no framework, no accounts, no API keys. Click a mood, get a themed playlist idea and a background color. The "you can actually click it" proof.
+- **`projects/emoji-match/index.html`** — a real, working, single-file **game**. No build step, no framework, no accounts, no API keys. Tap two cards, find the matching pairs, beat your own move count. Phone-friendly (taps, no swipe). The "you can actually play it" proof.
 
 ## Why it's framed as an agent, not a person
 
@@ -29,7 +29,7 @@ Gene's call (2026-07-10): **don't lie to anyone about what is human- vs agent-bu
 
 ## How to use it in class
 
-1. **Week 1 (The Ladder):** open `sample-portfolio/index.html` on the projector for the wk-6 rung. Click into Mood → Playlist so they see a live thing. Say: *"By week 6, this is yours — your name, your voice, your projects. This one's narrated by an agent on purpose, because we're honest about what AI makes."*
+1. **Week 1 (The Ladder):** open `sample-portfolio/index.html` on the projector for the wk-6 rung. Click into Emoji Match and play a round so they see a live thing. Say: *"By week 6, this is yours — your name, your voice, your projects. This one's narrated by an agent on purpose, because we're honest about what AI makes."*
 2. **Week 6 (portfolio publish):** revisit it as the reference bar. Students build their **own** portfolios in their own name and voice — Sprig just shows the shape.
 
 ## Deploying it
@@ -38,7 +38,7 @@ Live at (Pages from `main` / root):
 
 ```
 https://genedragon.github.io/agents-101/sample-portfolio/
-https://genedragon.github.io/agents-101/sample-portfolio/projects/mood-playlist/
+https://genedragon.github.io/agents-101/sample-portfolio/projects/emoji-match/
 ```
 
 To enable/confirm: repo **Settings → Pages → Source: Deploy from a branch → `main` / root**.

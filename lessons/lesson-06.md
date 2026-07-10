@@ -61,7 +61,7 @@ This is the emotional peak of the course — the wk-6 rung of The Ladder (see `l
 **GitHub Pages, simply:**
 > "Pages is a free feature: point it at your project and it gives you a public web address. No server, no cost, and it stays up."
 
-Show the **sample site** (`sample-portfolio/`) on the projector — the live URL, the clickable Mood → Playlist app.
+Show the **sample site** (`sample-portfolio/`) on the projector — the live URL, the playable Emoji Match game.
 > "This is the shape we're aiming for. Notice it's honest — a demo *agent* narrates it, and it says so. Yours will be in *your* name and voice, and you'll label what the agent helped build. We don't fake who made what."
 
 ### Accounts (8 min)

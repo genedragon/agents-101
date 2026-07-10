@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emoji Match</title>
+<meta name="description" content="A tiny memory-match game. Flip cards, find the pairs. Built by a demo agent.">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #faf7f2;
+    --card: #ffffff;
+    --line: #e6e0d6;
+    --accent: #c2410c;
+    --accent-soft: #fff1e9;
+    --good: #15803d;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 34px 18px;
+  }
+  .top {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  h1 { font-size: clamp(28px, 6vw, 40px); margin: 0 0 6px; letter-spacing: -0.02em; text-align: center; }
+  .sub { color: #6b6b64; margin: 0 0 20px; text-align: center; }
+
+  .scorebar {
+    display: flex;
+    gap: 22px;
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .scorebar b { color: var(--accent); }
+
+  .board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 380px;
+  }
+  .tile {
+    aspect-ratio: 1 / 1;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--accent);
+    font-size: clamp(26px, 8vw, 40px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, background 0.25s ease;
+    color: transparent;
+    user-select: none;
+  }
+  .tile:hover { transform: translateY(-2px); }
+  .tile.flipped {
+    background: var(--card);
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .tile.matched {
+    background: var(--accent-soft);
+    border: 1px solid #f3d9c9;
+    color: var(--ink);
+    cursor: default;
+    transform: none;
+  }
+  .tile:disabled { cursor: default; }
+
+  .win {
+    margin-top: 26px;
+    max-width: 380px;
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+  }
+  .win.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .win h2 { margin: 0 0 6px; font-size: 24px; }
+  .win p { margin: 0 0 16px; color: #6b6b64; font-family: ui-monospace, Menlo, monospace; font-size: 14px; }
+  .btn {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .newgame { margin-top: 20px; }
+
+  footer {
+    margin-top: auto;
+    padding-top: 36px;
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 12px;
+    color: #9a9a90;
+    text-align: center;
+  }
+  footer a { color: #9a9a90; }
+</style>
+</head>
+<body>
+  <p class="top">a tiny game I built</p>
+  <h1>Emoji Match</h1>
+  <p class="sub">Flip two cards. Find the matching pairs. Fewest moves wins.</p>
+
+  <div class="scorebar">
+    <span>Moves: <b id="moves">0</b></span>
+    <span>Matched: <b id="matched">0</b>/8</span>
+    <span>Time: <b id="time">0s</b></span>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <div class="win" id="win" role="status" aria-live="polite">
+    <h2>🎉 You matched them all!</h2>
+    <p id="win-stats"></p>
+    <button class="btn" onclick="newGame()">Play again</button>
+  </div>
+
+  <button class="btn ghost newgame" onclick="newGame()">↻ New game</button>
+
+  <footer>
+    🤖 Built by Sprig, a demo AI agent · Agents 101 · <a href="../../index.html">back to Sprig's site</a>
+  </footer>
+
+<script>
+  var EMOJIS = ["🌱","⭐","🚀","🎧","🐢","🍕","🌊","🎨"]; // 8 pairs
+  var board = document.getElementById("board");
+  var movesEl = document.getElementById("moves");
+  var matchedEl = document.getElementById("matched");
+  var timeEl = document.getElementById("time");
+  var winEl = document.getElementById("win");
+
+  var first = null, lock = false, moves = 0, matched = 0;
+  var startTime = null, timer = null;
+
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function startTimer() {
+    startTime = Date.now();
+    timer = setInterval(function () {
+      timeEl.textContent = Math.floor((Date.now() - startTime) / 1000) + "s";
+    }, 500);
+  }
+
+  function newGame() {
+    board.innerHTML = "";
+    first = null; lock = false; moves = 0; matched = 0;
+    movesEl.textContent = "0";
+    matchedEl.textContent = "0";
+    timeEl.textContent = "0s";
+    winEl.classList.remove("show");
+    if (timer) { clearInterval(timer); timer = null; }
+    startTime = null;
+
+    var deck = shuffle(EMOJIS.concat(EMOJIS));
+    deck.forEach(function (emoji, idx) {
+      var t = document.createElement("button");
+      t.className = "tile";
+      t.dataset.emoji = emoji;
+      t.dataset.idx = idx;
+      t.setAttribute("aria-label", "card");
+      t.textContent = emoji;
+      t.onclick = function () { flip(t); };
+      board.appendChild(t);
+    });
+  }
+
+  function flip(tile) {
+    if (lock) return;
+    if (tile.classList.contains("flipped") || tile.classList.contains("matched")) return;
+    if (!startTime) startTimer();
+
+    tile.classList.add("flipped");
+
+    if (!first) { first = tile; return; }
+
+    // second card
+    moves++;
+    movesEl.textContent = moves;
+
+    if (first.dataset.emoji === tile.dataset.emoji) {
+      first.classList.add("matched");
+      tile.classList.add("matched");
+      first = null;
+      matched++;
+      matchedEl.textContent = matched;
+      if (matched === EMOJIS.length) endGame();
+    } else {
+      lock = true;
+      var a = first, b = tile;
+      setTimeout(function () {
+        a.classList.remove("flipped");
+        b.classList.remove("flipped");
+        first = null; lock = false;
+      }, 750);
+    }
+  }
+
+  function endGame() {
+    if (timer) { clearInterval(timer); timer = null; }
+    var secs = Math.floor((Date.now() - startTime) / 1000);
+    document.getElementById("win-stats").textContent =
+      moves + " moves · " + secs + " seconds. Nice memory!";
+    winEl.classList.add("show");
+    winEl.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  newGame();
+</script>
+</body>
+</html>
