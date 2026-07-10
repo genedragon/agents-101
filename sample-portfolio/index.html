@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maya Chen — building things with AI</title>
+<meta name="description" content="Maya Chen, 11th grade. A portfolio of things I built in the Agents 101 club.">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a46;
+    --paper: #faf7f2;
+    --card: #ffffff;
+    --line: #e6e0d6;
+    --accent: #c2410c;      /* burnt orange, not purple */
+    --accent-soft: #fff1e9;
+    --good: #15803d;
+    --radius: 10px;
+    --maxw: 760px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    font-size: 18px;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+
+  /* header */
+  header {
+    padding: 68px 0 34px;
+    border-bottom: 1px solid var(--line);
+  }
+  .kicker {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(34px, 7vw, 52px);
+    line-height: 1.05;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+  .lede { font-size: 20px; color: var(--ink-soft); margin: 0 0 22px; max-width: 60ch; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; font-family: ui-monospace, Menlo, monospace; font-size: 14px; }
+  .links a {
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--card);
+    padding: 7px 13px;
+    border-radius: 100px;
+    color: var(--ink);
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  section { padding: 44px 0; border-bottom: 1px solid var(--line); }
+  h2 {
+    font-size: 15px;
+    font-family: ui-monospace, Menlo, monospace;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    font-weight: 600;
+  }
+  p { margin: 0 0 16px; }
+
+  /* projects */
+  .project {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 18px;
+  }
+  .project h3 { margin: 0 0 6px; font-size: 24px; letter-spacing: -0.01em; }
+  .project .meta {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+  .project p { font-size: 16.5px; color: var(--ink-soft); }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 4px; }
+  .tag {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11.5px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 3px 9px;
+    border-radius: 5px;
+  }
+  .project .cta {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: var(--accent);
+    padding: 9px 16px;
+    border-radius: 7px;
+  }
+  .project .cta.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .live-dot { color: var(--good); font-weight: 700; }
+
+  /* learned list */
+  ul.learned { list-style: none; padding: 0; margin: 0; }
+  ul.learned li {
+    padding: 12px 0 12px 30px;
+    border-bottom: 1px dashed var(--line);
+    position: relative;
+    color: var(--ink-soft);
+    font-size: 16.5px;
+  }
+  ul.learned li:last-child { border-bottom: 0; }
+  ul.learned li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: ui-monospace, Menlo, monospace;
+  }
+
+  footer { padding: 40px 0 70px; color: var(--ink-soft); font-size: 15px; }
+  footer .built {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 13px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 500px) { body { font-size: 17px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="kicker">11th grade · Agents 101 club</p>
+    <h1>Hi, I'm Maya. I build things now.</h1>
+    <p class="lede">Ten weeks ago I'd never written a line of code. This is a collection of stuff I made — with an AI agent as my pair-programmer — while figuring out what "agentic AI" actually means.</p>
+    <nav class="links">
+      <a href="#projects">Projects</a>
+      <a href="#learned">What I learned</a>
+      <a href="mailto:maya@example.com">Email</a>
+      <a href="https://github.com/example" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+
+    <article class="project">
+      <h3>Mood → Playlist</h3>
+      <p class="meta">Week 5 · solo · <span class="live-dot">● live</span></p>
+      <p>You pick how you're feeling and it builds you a themed playlist idea with a color to match. My first real project — I described what I wanted in plain English and the agent scaffolded it, then I tweaked the vibe until it felt like <em>mine</em>.</p>
+      <div class="tags">
+        <span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">no frameworks</span>
+      </div>
+      <a class="cta" href="projects/mood-playlist/index.html">Try it live →</a>
+    </article>
+
+    <article class="project">
+      <h3>Study Streak Tracker</h3>
+      <p class="meta">Week 6 · with my study group · in progress</p>
+      <p>A little tracker that saves how many days in a row we've all studied. This is where I learned that an agent can be <em>wrong</em> — it kept saving my streak to the wrong browser storage and I had to read the code and catch it. That felt like a superpower.</p>
+      <div class="tags">
+        <span class="tag">localStorage</span><span class="tag">debugging</span><span class="tag">teamwork</span>
+      </div>
+      <a class="cta ghost" href="#" onclick="return false;">Coming week 7</a>
+    </article>
+
+    <article class="project">
+      <h3>Class Trip Budget Splitter</h3>
+      <p class="meta">Week 6 · solo · idea &amp; sketch</p>
+      <p>My aunt runs a small bakery and does the math for group orders by hand. I'm building a splitter she can actually use. Still just a sketch and a plan I made <em>with</em> the agent — but the point of this club was to help real people, and she's my real person.</p>
+      <div class="tags">
+        <span class="tag">planning</span><span class="tag">for a real user</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="learned">
+  <div class="wrap">
+    <h2>What I learned</h2>
+    <ul class="learned">
+      <li>An agent doesn't just answer — it <strong>does things</strong>: reads files, writes code, runs it, then checks its own work.</li>
+      <li>It's fast, but it's not always right. Reading what it wrote and catching mistakes is the actual skill.</li>
+      <li>Saying <em>exactly</em> what I want gets a way better result than being vague. Prompts are just clear thinking.</li>
+      <li>Publishing something to the real internet is less scary than I thought. This page is proof.</li>
+      <li>I can keep going after this club ends. That was the whole point.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Thanks for looking. More coming — I'm not done.</p>
+    <p class="built">Built in the Agents 101 club · Kiro + GitHub Pages · Maya Chen, 2026<br>
+    This is a <strong>sample portfolio</strong> included with the course to show students the week-6 goal.</p>
+  </div>
+</footer>
+
+</body>
+</html>
