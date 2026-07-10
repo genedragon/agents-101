@@ -41,22 +41,34 @@ The lesson also surfaces a common misconception early: **a chatbot is not the sa
 
 | Time | Block | Activity |
 |---|---|---|
-| 0:00 – 0:05 | Welcome | Roll call, club rules, intro to the TA, what we'll build over 10 weeks |
-| 0:05 – 0:20 | Lesson | "What is an agent?" — instructor-led with whiteboard / slides |
-| 0:20 – 0:30 | Demo | Instructor demos a browser chat doing something agentic in real time |
-| 0:30 – 0:50 | Hands-on | Students log into the browser chat tool and try the prompts below |
-| 0:50 – 1:05 | Assignment work | Students start the "Three agents in my life" assignment |
-| 1:05 – 1:15 | Discussion | Share examples; instructor probes "is that really agentic? why?" |
+| 0:00 – 0:03 | Welcome | Roll call, TA intro — kept short so the wow moment lands early |
+| 0:03 – 0:20 | 🎯 **Wow moment** | Instructor builds & deploys a working app **live** based on a student suggestion — see `wow-demo-script.md` |
+| 0:20 – 0:35 | Core lesson | "What is an agent?" — instructor-led with whiteboard, referencing what students just watched |
+| 0:35 – 0:55 | Hands-on | Students try three prompts on their own browser chat |
+| 0:55 – 1:10 | Assignment work | Students start "Three agents in my life" |
+| 1:10 – 1:15 | 🪜 **The Ladder** | Preview: what you'll build by wk 3, 6, 8, 9 |
 
 ---
 
 ## Instructor notes (zero-prereq lesson script)
 
-### Opening (5 min)
+### Opening (3 min)
 
-> "Welcome. Over the next 10 weeks we're going to learn what agentic AI is by actually using it — not just talking about it. By week 10 you'll have a public website with something you built, and you'll know how to keep going on your own."
->
-> "Quick rules: nobody here knows everything. Asking questions is the whole point. There's a TA (introduce them) and there's me. We will get stuck together. That's normal. The agents we use will sometimes be wrong — we'll learn to spot that and fix it."
+> "Welcome. Before we talk about what an agent is, I'm going to **show you one working**. Someone shout out something fun you'd like to see built in the next 8 minutes — a silly website, a game, a quiz, whatever. If you're shy, I've got a backup idea ready."
+
+Take one suggestion. If the class is silent, roll with the rehearsed default (see `wow-demo-script.md`).
+
+### 🎯 Wow moment — live build & deploy (15–17 min)
+
+**This is the hook.** Full playbook lives in `wow-demo-script.md`. High-level beats:
+
+1. **The Ask (1 min):** Take a student's suggestion for what to build. Instructor picks a doable one or falls back to a rehearsed default (Snake game, meme generator, "would you rather" quiz, pixel-art canvas).
+2. **The Build (7–8 min):** Instructor types a plain-English prompt into Kiro IDE on the projector. Class watches files appear, code get written, the agent occasionally pause and ask a clarifying question.
+3. **The Deploy (2 min):** One commit + push. GitHub Pages URL comes back live.
+4. **The Playthrough (3 min):** QR code up on the projector. Students pull out phones, visit the URL, play the thing that didn't exist 10 minutes ago.
+5. **The Frame (2 min):** "That's an agent. You'll do that yourself by week 3. By week 6, each of you has your own portfolio site live on the internet. By week 9, your agent is doing work for you while you sleep. Any questions before we dig in?"
+
+**Whatever the students just watched becomes the running example** for the rest of the lesson — the whiteboard three-column diagram references the same build ("when I typed *'make it purple'*, was that perceive, decide, or act?").
 
 ### Core lesson (15 min)
 
@@ -80,20 +92,26 @@ AGENT = perceive → decide → act → repeat
 
 This is the definition we'll come back to every week.
 
-**Ask the class:**
-- "Is Siri an agent or a chatbot?" *(Answer: it depends. Siri answering "what time is it" is a chatbot. Siri setting a timer or texting your mom is an agent — it acted on the world.)*
+**Point back to the wow demo:**
+- "When Kiro read the existing files before writing code — that was perceive."
+- "When it chose which file to edit and what to write — that was decide."
+- "When it saved the file and ran the build — that was act."
+- "Then it looked at the result and kept going — that's the loop."
+
+**Then ask the class:**
+- "Is Siri an agent or a chatbot?" *(Depends. Siri answering "what time is it" is a chatbot. Siri setting a timer or texting your mom is an agent — it acted on the world.)*
 - "What about autocorrect?" *(Mostly a chatbot — it predicts text, doesn't act on anything.)*
 - "What about a self-driving car?" *(Agent. Perceives the road, decides where to go, acts on the steering wheel.)*
 
-### Demo (10 min)
+**Mini second demo (5 min) — the perceive→decide→act ladder in a browser chat:**
 
-Open the chosen browser chat tool on the instructor's screen. Try this sequence — it shows the perceive → decide → act loop clearly:
+Open the chosen browser chat tool. Try this sequence:
 
 1. Ask: *"What's today's date?"* — chatbot behavior, one step.
-2. Ask: *"What is the weather where I am right now?"* — the tool has to perceive (geolocate? ask?), decide, and act (fetch). The student sees it pause and think.
-3. Ask: *"Make me a 4-day itinerary for a fun weekend in [your city] — pull real events happening this weekend, with links."* — full agent behavior. It will look up multiple things, decide what to include, and assemble.
+2. Ask: *"What is the weather where I am right now?"* — has to perceive (geolocate? ask?), decide, and act (fetch).
+3. Ask: *"Make me a 4-day itinerary for a fun weekend in [your city] — pull real events happening this weekend, with links."* — full agent behavior. It looks up multiple things, decides what to include, and assembles.
 
-**Pause after each step and ask the class:** "Was that perceive, decide, or act? Or all three?"
+**Pause after each step:** "Was that perceive, decide, or act? Or all three?"
 
 ### Hands-on (20 min)
 
@@ -109,7 +127,7 @@ Each student opens the browser chat tool. Have them try three prompts:
 
 Hand out (or post) the assignment for the week (see `assignment-01.md`). Students should begin filling out the worksheet while you and the TA circulate to answer questions.
 
-### Closing discussion (10 min)
+### Closing discussion (5 min)
 
 Pick 3–4 student examples and put them up on the board. For each, probe the class:
 - "Does it perceive? What?"
@@ -117,6 +135,20 @@ Pick 3–4 student examples and put them up on the board. For each, probe the cl
 - "Does it act on the world?"
 
 Reinforce: there's no shame in getting it wrong. Some real-world tools are *kind of* agentic but not fully. That gray area is part of the field.
+
+### 🪜 The Ladder — closing preview (5 min)
+
+Before dismissing, project four screenshots (or live tabs) showing where the course goes. This gives students the arc — "here is what YOU will build" — and ends session 1 on a forward-looking note.
+
+| Week | The wow moment | What students see |
+|---|---|---|
+| **Wk 3** | *"The agent moved files without me"* | An agent restructuring a small codebase in real time — students realize agents can do work at their computer, not just answer questions |
+| **Wk 6** | *"My website is live on the internet"* | The included **sample portfolio** (`sample-portfolio/index.html`) loading on their phone with a real URL they can share — click into "Mood → Playlist" so they see a live, working thing a beginner built |
+| **Wk 8** | *"The agent remembered me from last week"* | A KiroClaw agent recalling a prior conversation without being told anything — the moment persistence clicks |
+| **Wk 9** | *"The agent worked while I slept"* | A screenshot or Slack post from a KiroClaw scheduled job that ran overnight and produced a real result — the moment autonomy clicks |
+
+Close with:
+> "Week 1 job is to leave here knowing what an agent *is*. Weeks 2–10 you'll learn to *build one*. See you next week — bring a laptop."
 
 ---
 
@@ -135,9 +167,22 @@ Reinforce: there's no shame in getting it wrong. Some real-world tools are *kind
 ## Materials needed
 
 - Whiteboard or large paper for the three-column diagram
-- Projector or large screen for the instructor demo
-- WiFi access for student laptops
-- One browser-based AI chat account per student (sign-ups happen at home as homework — see `assignment-01.md`)
+- Projector or large screen for the wow-moment demo and the ladder preview
+- Instructor laptop with Kiro IDE installed and signed in (or fallback browser AI chat with code output)
+- Pre-created empty GitHub repo for the wow-demo build, with GitHub Pages enabled
+- Phone or tablet to generate a QR code for the finished demo URL (`qrcode.show` or similar)
+- WiFi access for student phones (they'll visit the deployed URL live)
+- WiFi access for student laptops for the hands-on segment
+- One browser-based AI chat account per student (sign-ups happen at home as homework)
+
+## Instructor prep checklist (do the night before)
+
+- [ ] Kiro IDE loaded on instructor laptop, signed in, works
+- [ ] Empty scratch workspace ready to accept the demo build
+- [ ] Empty GitHub repo created for the demo (e.g. `agent-demo-YYYY-MM-DD`) with Pages enabled on `main`
+- [ ] Rehearse the safe-default demo end-to-end (see `wow-demo-script.md`) — measure the time. If it takes > 10 minutes, pick a simpler default.
+- [ ] Have the four "Ladder" screenshots ready — one per milestone (wk 3, 6, 8, 9). See `wow-demo-script.md` for what each should show.
+- [ ] QR-code generator bookmarked (e.g. `qrcode.show/<url>`) so you can share the demo URL to phones in one click.
 
 ---
 
