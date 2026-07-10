@@ -154,9 +154,9 @@ Prepare four screenshots or live tabs to show at the end of lesson 1. These prev
 
 ### Wk 6 — "My website is live on the internet"
 
-- Use the included **sample portfolio**: open `sample-portfolio/index.html` (or its GitHub Pages URL) and click into the live Mood → Playlist mini-app.
+- Use the included **sample site**: open `sample-portfolio/index.html` (or its GitHub Pages URL) and click into the live Mood → Playlist mini-app.
 - URL visible in the browser bar.
-- Caption: "That's you, week 6. This page is live at that URL, right now, for anyone in the world — and a beginner built it."
+- It's narrated by a demo agent ("Sprig") on purpose — honest AI disclosure is a course value, and the sample models it. Say: "By week 6 this is yours — in your own name and voice. This one's an agent's because we don't fake human authorship."
 - After the first cohort ships real portfolios, swap in a past student's (with permission) for even more pull.
 
 ### Wk 8 — "The agent remembered me from last week"
