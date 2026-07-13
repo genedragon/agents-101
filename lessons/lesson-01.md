@@ -143,7 +143,7 @@ Before dismissing, project four screenshots (or live tabs) showing where the cou
 | Week | The wow moment | What students see |
 |---|---|---|
 | **Wk 3** | *"The agent moved files without me"* | An agent restructuring a small codebase in real time — students realize agents can do work at their computer, not just answer questions |
-| **Wk 6** | *"My website is live on the internet"* | The included **sample site** (`sample-portfolio/index.html`) loading on their phone with a real URL — narrated honestly by a demo agent ("Sprig"), with a live "Mood → Playlist" mini-app they can click. Students build their *own* in their own name/voice; this shows the shape |
+| **Wk 6** | *"My website is live on the internet"* | The included **sample site** (`sample-portfolio/index.html`) loading on their phone with a real URL — narrated honestly by a demo agent ("Sprig"), with a live **Emoji Match game** they can play. Students build their *own* in their own name/voice; this shows the shape |
 | **Wk 8** | *"The agent remembered me from last week"* | A KiroClaw agent recalling a prior conversation without being told anything — the moment persistence clicks |
 | **Wk 9** | *"The agent worked while I slept"* | A screenshot or Slack post from a KiroClaw scheduled job that ran overnight and produced a real result — the moment autonomy clicks |
 
