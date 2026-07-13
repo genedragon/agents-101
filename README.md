@@ -7,6 +7,15 @@ A free, 10-week, no-prior-CS-needed introduction to agentic AI for high schooler
 
 Repo: **https://github.com/genedragon/agents-101**
 
+### 👀 See it live
+
+Curious what students build? Here's the **sample site** — a demo agent named **Sprig 🌱** showing the week-6 goal (honestly narrated as AI-made):
+
+- **Sprig's site:** https://genedragon.github.io/agents-101/sample-portfolio/
+- **Play the mini-game (Emoji Match):** https://genedragon.github.io/agents-101/sample-portfolio/projects/emoji-match/
+
+By week 6, each student has a live page like this — in their own name and voice.
+
 ---
 
 ## Who this is for
