@@ -146,9 +146,12 @@ This curriculum makes three opinionated choices:
 
 Current state (2026-07):
 - ✅ Master spec locked
-- ✅ README + Lesson 1 + Assignment 1 drafted (format-setter)
-- ⏳ Lessons 2–10 + assignments 2–10 pending
-- ⏳ Install guides, handbooks, IT guide pending
+- ✅ All 10 lesson plans + 10 paired assignments drafted
+- ✅ Lesson 1 wow-moment + instructor playbook (`wow-demo-script.md`)
+- ✅ Live sample site (Sprig demo agent + Emoji Match game) on GitHub Pages
+- ⏳ Install guides (Kiro IDE/CLI, GitHub Edu, Netlify) pending
+- ⏳ Instructor + student handbooks (incl. glossary) pending
+- ⏳ School IT conversation guide pending
 - ⏳ Kiro sponsored-credits ask draft pending
 - ⏳ September CS-teacher consult
 - ⏳ Dry run with TA before pilot
